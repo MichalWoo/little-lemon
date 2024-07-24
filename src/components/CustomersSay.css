@@ -1,0 +1,38 @@
+.testimonials-container h2 {
+    text-align: center;
+    color: #F4CE14;
+}
+
+.testimonials-box {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.testimonials-card {
+    background-color: #f1f1f1;
+    width: 250px;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.testimonials-card img {
+    width: 50%;
+    border-radius: 100%;
+}
+
+.testimonials-card i {
+    display: block;
+    color: #495E57;
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 8px 0;
+}
+
+.testimonials-card h3 {
+    line-height: 1.3;
+    margin: 8px 0 0 0;
+}

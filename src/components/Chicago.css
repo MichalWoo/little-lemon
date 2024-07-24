@@ -1,0 +1,44 @@
+.about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.about-box {
+    width: 410px;
+}
+
+.about-box h2 {
+    color: #495E57;
+}
+
+.about-location {
+    font-family: 'markazi text';
+    color: #000000;
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.about-box img {
+    max-width: 410px;
+    border-radius: 16px;
+}
+
+
+@media (max-width:880px) {
+    .about {
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:425px) {
+    .about-box img {
+        max-width: 100%;
+    }
+}

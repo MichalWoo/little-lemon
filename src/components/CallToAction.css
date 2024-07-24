@@ -1,0 +1,38 @@
+.hero {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hero-box {
+    width: 410px;
+}
+
+.location {
+    font-family: 'markazi text';
+    color: #ffffff;
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.hero-box img {
+    max-width: 410px;
+    border-radius: 16px;
+}
+
+@media (max-width:880px) {
+    .hero {
+        gap: 32px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:425px) {
+    .hero-box img {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,30 @@
+h1 {
+    font-family: 'markazi';
+}
+
+.inner-grid-container {
+    display: grid; /* Używa grid layout */
+    grid-template-columns: repeat(12, 1fr); /* Ustawia 12 kolumn równych szerokości */
+    gap: 10px; /* Odstęp między elementami */
+    padding: 0 10px; /* Padding po bokach */
+  }
+  
+  .inner-grid-item {
+    background-color: #e0e0e0; /* Kolor tła */
+    border: 1px solid #bbb; /* Obramowanie */
+    padding: 20px; /* Padding wewnątrz elementu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    grid-column: 3 / span 2; /* Każdy element zajmuje 2 kolumny z 12 */
+  }
+  
+  .inner-grid-item:nth-child(2) {
+    grid-column: 5 / span 2; /* Rozpoczyna się od kolumny 5 i zajmuje 2 kolumny */
+  }
+  
+  .inner-grid-item:nth-child(3) {
+    grid-column: 7 / span 2; /* Rozpoczyna się od kolumny 7 i zajmuje 2 kolumny */
+  }
+  
+  .inner-grid-item:nth-child(4) {
+    grid-column: 9 / span 2; /* Rozpoczyna się od kolumny 9 i zajmuje 2 kolumny */
+  }

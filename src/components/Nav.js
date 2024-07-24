@@ -1,31 +1,56 @@
 // src/Nav.js
 import React from "react";
+import "./Nav.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav>
-      <img src="/Little-Lemon-logo.jpg" alt="Little Lemon Logo" />
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/menu">Menu</a>
-        </li>
-        <li>
-          <a href="/reservations">Reservations</a>
-        </li>
-        <li>
-          <a href="/order-online">Order online</a>
-        </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <div className="wrapper">
+        <nav>
+          <div className="nav-logo">
+            <a href="/">
+              <img
+                src="/Little-Lemon-primary-logo.png"
+                alt="Little Lemon Logo"
+              />
+            </a>
+          </div>
+          <ul>
+            <li>
+              <Link to="/" className="nav-item">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="nav-item">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/menu" className="nav-item">
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link to="/reservations" className="nav-item">
+                Reservations
+              </Link>
+            </li>
+            <li>
+              <Link to="/order-online" className="nav-item">
+                Order online
+              </Link>
+            </li>
+            <li>
+              <Link to="/login" className="nav-item">
+                Login
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 

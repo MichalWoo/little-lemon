@@ -1,0 +1,18 @@
+.container {
+    background-color: #495E57;
+    padding: 62px 0;
+}
+
+.container-white {
+    padding: 40px 0;
+}
+
+
+@media (max-width:425px) {
+    .container {
+        background-color: #495E57;
+        padding: 40px 0;
+    }
+}
+
+

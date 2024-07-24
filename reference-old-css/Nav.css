@@ -1,0 +1,45 @@
+/* src/Nav.css */
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .nav-inner-grid-container {
+    display: grid; /* Używa grid layout */
+    grid-template-columns: repeat(12, 1fr); /* Ustawia 12 kolumn równych szerokości */
+    gap: 10px; /* Odstęp między elementami */
+    padding: 0 10px; /* Padding po bokach */
+  }
+
+  .nav-logo img {
+    max-width: 200px;
+    margin-right: 32px;
+    grid-column: 3 / span 2;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+  }
+
+  nav ul li {
+    display: inline;
+    padding: 0 16px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }

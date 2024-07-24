@@ -1,16 +1,22 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
 import Nav from "./components/Nav";
-import Main from "./components/Main";
 import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import Chicago from "./components/Chicago";
+import Specials from "./components/Specials";
 
 function App() {
   return (
     <>
-      <Header />
       <Nav />
-      <Main />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<Chicago />} />
+        <Route path="/menu" element={<Specials />} />
+        <Route path="/order-online" element={<Specials />} />
+      </Routes>
       <Footer />
     </>
   );
