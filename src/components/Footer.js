@@ -46,6 +46,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <p className="copyrights"> © 2024 Little Lemon</p>
       </div>
     </footer>
   );

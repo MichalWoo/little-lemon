@@ -34,7 +34,7 @@ const Nav = () => {
             </li>
             <li>
               <Link to="/reservations" className="nav-item">
-                Reservations
+                Book a Table
               </Link>
             </li>
             <li>

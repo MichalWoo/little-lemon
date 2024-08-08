@@ -1,0 +1,39 @@
+.booking-confirmation {
+    background-color: #f8f8f8;
+    padding: 16px 32px;
+    margin-bottom: 64px;
+}
+
+.booking-confirmation-box {
+    background-color: #F4CE14;
+    padding: 24px 32px;
+    margin-top: 32px;
+}
+
+.booking-confirmation-box h2 {
+    padding-bottom: 8px;
+}
+
+.booking-confirmation-box h3 {
+    font-size: 32px;
+    font-weight: 500;
+    padding-top: 8px;
+}
+
+.booking-confirmation span {
+    font-weight: 600;
+    margin-top: 8px;
+    padding: 8px;
+}
+
+.buttons-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+}
+
+.buttons {
+    background-color: #e8e8e8;
+}

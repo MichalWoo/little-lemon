@@ -16,7 +16,9 @@ const CallToAction = () => {
           modern twist. Our passion for quality and heritage shines through in
           every dish we create.
         </p>
-        <button>Reserve a Table</button>
+        <a href="/reservations">
+          <button>Book a Table</button>
+        </a>
       </div>
     </article>
   );

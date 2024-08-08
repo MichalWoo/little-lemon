@@ -3,7 +3,7 @@
 footer {
     background-color: #495E57;
     color: white;
-    padding: 64px 0;
+    padding: 64px 0 24px 0;
     box-sizing: border-box;
     display: flex;
   }
@@ -55,6 +55,12 @@ footer {
     width: auto;
     height: 28px;
     margin: 0;
+  }
+
+  .copyrights {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 64px;
   }
 
   @media (max-width:880px) {
