@@ -34,5 +34,30 @@ input, select {
 
 .button {
     width: 100%;
-    margin-top: 32px;
-}
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button-disabled {
+    background-color: #a5abb0;
+    color: #ffffff;
+    cursor: not-allowed;
+  }
+
+  .button-disabled:hover {
+    background-color: #858d94;
+    cursor: not-allowed;
+    color: #ffffff;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.875em;
+  }

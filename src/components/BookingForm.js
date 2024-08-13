@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./BookingForm.css";
 
 const BookingForm = ({ availableTimes, submitForm }) => {
@@ -6,8 +6,21 @@ const BookingForm = ({ availableTimes, submitForm }) => {
     date: "",
     time: "",
     guests: 1,
-    occasion: "Birthday",
+    occasion: "Casual",
   });
+
+  const [errors, setErrors] = useState({
+    date: "",
+    time: "",
+    guests: "",
+  });
+
+  const [minDate, setMinDate] = useState("");
+
+  useEffect(() => {
+    const today = new Date().toISOString().split("T")[0];
+    setMinDate(today);
+  }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -15,12 +28,55 @@ const BookingForm = ({ availableTimes, submitForm }) => {
       ...prevData,
       [id]: value,
     }));
+
+    validateField(id, value);
+  };
+
+  const validateField = (fieldName, value) => {
+    let errorMessage = "";
+
+    switch (fieldName) {
+      case "date":
+        if (!value) {
+          errorMessage = "Date is required.";
+        }
+        break;
+      case "time":
+        if (!value) {
+          errorMessage = "Time is required.";
+        }
+        break;
+      case "guests":
+        if (value < 1) {
+          errorMessage = "Number of guests must be at least 1.";
+        }
+        break;
+      default:
+        break;
+    }
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [fieldName]: errorMessage,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (
+      Object.values(errors).some((error) => error) ||
+      Object.values(formData).some((field) => !field)
+    ) {
+      return;
+    }
+
     submitForm(formData);
   };
+
+  const isFormValid =
+    Object.values(errors).every((error) => !error) &&
+    Object.values(formData).every((value) => value);
 
   return (
     <div>
@@ -38,7 +94,10 @@ const BookingForm = ({ availableTimes, submitForm }) => {
             onChange={handleChange}
             aria-label="Date"
             aria-required="true"
+            min={minDate}
+            required
           />
+          {errors.date && <span className="error">{errors.date}</span>}
         </div>
 
         <div>
@@ -49,13 +108,18 @@ const BookingForm = ({ availableTimes, submitForm }) => {
             onChange={handleChange}
             aria-label="Time"
             aria-required="true"
+            required
           >
+            <option value="" disabled>
+              Select a time
+            </option>
             {availableTimes.map((time) => (
               <option key={time} value={time}>
                 {time}
               </option>
             ))}
           </select>
+          {errors.time && <span className="error">{errors.time}</span>}
         </div>
 
         <div>
@@ -63,14 +127,16 @@ const BookingForm = ({ availableTimes, submitForm }) => {
           <input
             type="number"
             id="guests"
-            placeholder={1}
+            placeholder={0}
             min={1}
             max={10}
             value={formData.guests}
             onChange={handleChange}
             aria-label="Number of guests"
             aria-required="true"
+            required
           />
+          {errors.guests && <span className="error">{errors.guests}</span>}
         </div>
 
         <div>
@@ -81,6 +147,7 @@ const BookingForm = ({ availableTimes, submitForm }) => {
             onChange={handleChange}
             aria-label="Occasion"
           >
+            <option value="Casual">Casual</option>
             <option value="Birthday">Birthday</option>
             <option value="Anniversary">Anniversary</option>
             <option value="Business">Business</option>
@@ -88,7 +155,12 @@ const BookingForm = ({ availableTimes, submitForm }) => {
         </div>
 
         <div>
-          <button className="button" type="submit" aria-label="Book a Table">
+          <button
+            className={`button ${!isFormValid ? "button-disabled" : ""}`}
+            type="submit"
+            aria-label="Book a Table"
+            disabled={!isFormValid}
+          >
             Book a Table
           </button>
         </div>
