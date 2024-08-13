@@ -6,7 +6,7 @@ const BookingForm = ({ availableTimes, submitForm }) => {
     date: "",
     time: "",
     guests: 1,
-    occasion: "Casual",
+    occasion: "",
   });
 
   const [errors, setErrors] = useState({
@@ -128,7 +128,7 @@ const BookingForm = ({ availableTimes, submitForm }) => {
             type="number"
             id="guests"
             placeholder={0}
-            min={1}
+            min={0}
             max={10}
             value={formData.guests}
             onChange={handleChange}
@@ -147,6 +147,9 @@ const BookingForm = ({ availableTimes, submitForm }) => {
             onChange={handleChange}
             aria-label="Occasion"
           >
+            <option value="" disabled>
+              Select your occasion
+            </option>
             <option value="Casual">Casual</option>
             <option value="Birthday">Birthday</option>
             <option value="Anniversary">Anniversary</option>
