@@ -1,6 +1,7 @@
 // src/Footer.js
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,22 +13,34 @@ const Footer = () => {
             <h3>USEFUL LINKS</h3>
             <ul>
               <li>
-                <a href="/">Home</a>
+                <Link to="/" className="nav-item">
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="/about">About</a>
+                <Link to="/about" className="nav-item">
+                  About
+                </Link>
               </li>
               <li>
-                <a href="/menu">Menu</a>
+                <Link to="/menu" className="nav-item">
+                  Menu
+                </Link>
               </li>
               <li>
-                <a href="/reservations">Book a Table</a>
+                <Link to="/reservations" className="nav-item">
+                  Book a Table
+                </Link>
               </li>
               <li>
-                <a href="/order-online">Order online</a>
+                <Link to="/order-online" className="nav-item">
+                  Order online
+                </Link>
               </li>
               <li>
-                <a href="/login">Login</a>
+                <Link to="/login" className="nav-item">
+                  Login
+                </Link>
               </li>
             </ul>
           </div>
