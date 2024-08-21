@@ -1,7 +1,7 @@
 # Little Lemon restaurant - Book a Table feature
 
 This is a Capstone project for the Meta Front-End Developer Capstone course.
-Using React, I developed a web application for the Little Lemon restaurant, which includes a responsive home page, look and feel and a form that handles table reservations.
+Using React, I developed a responsive web application for the Little Lemon restaurant, which includes a home page and a form that handles table reservations.
 
 <h2> Demo Preview </h2>
 <h3><a href="https://master--little-lemon-book-a-table.netlify.app/"><strong> CLICK HERE TO PREVIEW DEMO </strong></a></h3>
