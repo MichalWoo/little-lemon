@@ -1,5 +1,6 @@
 import React from "react";
 import "./CallToAction.css";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   return (
@@ -16,9 +17,9 @@ const CallToAction = () => {
           modern twist. Our passion for quality and heritage shines through in
           every dish we create.
         </p>
-        <a href="/reservations">
+        <Link to="/reservations">
           <button>Book a Table</button>
-        </a>
+        </Link>
       </div>
     </article>
   );
