@@ -5,7 +5,7 @@ Using React, I developed a web application for the Little Lemon restaurant, whic
 
 
 <h2> Demo Preview </h2>
-<h3><a href="https://url/"><strong> CLICK HERE TO PREVIEW DEMO </strong></a></h3>
+<h3><a href="https://master--little-lemon-book-a-table.netlify.app/"><strong> CLICK HERE TO PREVIEW DEMO </strong></a></h3>
 <br />
 
 
