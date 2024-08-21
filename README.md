@@ -4,9 +4,10 @@ This is a Capstone project for the Meta Front-End Developer Capstone course.
 Using React, I developed a web application for the Little Lemon restaurant, which includes a responsive home page, look and feel and a form that handles table reservations.
 
 
-## Demo Preview
-**[CLICK HERE TO PREVIEW DEMO](urlhere)**
-#
+<h2> Demo Preview </h2>
+<h3><a href="https://url/"><strong> CLICK HERE TO PREVIEW DEMO </strong></a></h3>
+<br />
+
 
 ![mockup](https://github.com/user-attachments/assets/4270aa82-e308-410c-9bc1-97bb607f0935)
 
