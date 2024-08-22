@@ -132,7 +132,7 @@ const BookingForm = ({ availableTimes = [], submitForm }) => {
             type="number"
             id="guests"
             placeholder="0"
-            min="1"
+            min="0"
             max="10"
             value={formData.guests}
             onChange={handleChange}
