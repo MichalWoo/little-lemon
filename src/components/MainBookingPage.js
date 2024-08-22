@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 import BookingPage from "./BookingPage";
 import { useNavigate } from "react-router-dom";
 
-const initializeTimes = () => [
+export const initializeTimes = () => [
   "16:00",
   "17:00",
   "18:00",
@@ -12,7 +12,7 @@ const initializeTimes = () => [
   "22:00",
 ];
 
-const timesReducer = (state, action) => {
+export const timesReducer = (state, action) => {
   switch (action.type) {
     case "book_time":
       return state.filter((time) => time !== action.time);
@@ -34,7 +34,7 @@ const MainBookingPage = () => {
 
   const submitForm = (formData) => {
     setBookings((prevBookings) => [...prevBookings, formData]);
-    dispatch({ type: "book_time", time: formData.time }); // Update the available times
+    dispatch({ type: "book_time", time: formData.time });
     navigate("/confirmation", { state: formData });
   };
 

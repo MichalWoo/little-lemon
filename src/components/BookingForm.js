@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./BookingForm.css";
 
-const BookingForm = ({ availableTimes, submitForm }) => {
+const BookingForm = ({ availableTimes = [], submitForm }) => {
   const [formData, setFormData] = useState({
     date: "",
     time: "",
@@ -76,7 +76,10 @@ const BookingForm = ({ availableTimes, submitForm }) => {
 
   const isFormValid =
     Object.values(errors).every((error) => !error) &&
-    Object.values(formData).every((value) => value);
+    formData.date &&
+    formData.time &&
+    formData.guests > 0 &&
+    formData.occasion;
 
   return (
     <div>
@@ -109,6 +112,7 @@ const BookingForm = ({ availableTimes, submitForm }) => {
             aria-label="Time"
             aria-required="true"
             required
+            disabled={!availableTimes.length}
           >
             <option value="" disabled>
               Select a time
@@ -127,9 +131,9 @@ const BookingForm = ({ availableTimes, submitForm }) => {
           <input
             type="number"
             id="guests"
-            placeholder={0}
-            min={0}
-            max={10}
+            placeholder="0"
+            min="1"
+            max="10"
             value={formData.guests}
             onChange={handleChange}
             aria-label="Number of guests"

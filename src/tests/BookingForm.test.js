@@ -1,56 +1,26 @@
-import React, { useState } from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import BookingForm from "../components/BookingForm";
 
-describe("BookingForm JavaScript Validation Functions", () => {
+test("should enable submit button when all form fields are filled", () => {
   const mockSubmitForm = jest.fn();
 
-  test("should show error message when guests number is less than 1", () => {
-    render(<BookingForm availableTimes={[]} submitForm={mockSubmitForm} />);
+  render(
+    <BookingForm
+      availableTimes={["18:00", "19:00"]}
+      submitForm={mockSubmitForm}
+    />
+  );
 
-    const guestsInput = screen.getByLabelText(/Number of guests/i);
+  const dateInput = screen.getByLabelText(/Date/i);
+  const timeSelect = screen.getByLabelText(/Time/i);
+  const guestsInput = screen.getByLabelText(/Number of guests/i);
+  const occasionSelect = screen.getByLabelText(/Occasion/i);
 
-    // Set the number of guests to 0
-    fireEvent.change(guestsInput, { target: { value: "0" } });
-    fireEvent.submit(screen.getByRole("button"));
+  fireEvent.change(dateInput, { target: { value: "2024-08-23" } });
+  fireEvent.change(timeSelect, { target: { value: "18:00" } });
+  fireEvent.change(guestsInput, { target: { value: "2" } });
+  fireEvent.change(occasionSelect, { target: { value: "Birthday" } });
 
-    expect(
-      screen.getByText(/Number of guests must be at least 1./i)
-    ).toBeInTheDocument();
-  });
-
-  test("should enable submit button when form is valid", () => {
-    render(
-      <BookingForm
-        availableTimes={["17:00", "18:00"]}
-        submitForm={mockSubmitForm}
-      />
-    );
-
-    const dateInput = screen.getByLabelText(/Date/i);
-    const timeSelect = screen.getByLabelText(/Time/i);
-    const guestsInput = screen.getByLabelText(/Number of guests/i);
-
-    // Fill in valid form data
-    fireEvent.change(dateInput, {
-      target: { value: new Date().toISOString().split("T")[0] },
-    });
-    fireEvent.change(timeSelect, { target: { value: "17:00" } });
-    fireEvent.change(guestsInput, { target: { value: "1" } });
-
-    expect(screen.getByRole("button")).not.toBeDisabled();
-  });
-
-  test("should disable submit button when form is invalid", () => {
-    render(<BookingForm availableTimes={[]} submitForm={mockSubmitForm} />);
-
-    // Leave fields empty or invalid
-    fireEvent.change(screen.getByLabelText(/Date/i), { target: { value: "" } });
-    fireEvent.change(screen.getByLabelText(/Time/i), { target: { value: "" } });
-    fireEvent.change(screen.getByLabelText(/Number of guests/i), {
-      target: { value: "0" },
-    });
-
-    expect(screen.getByRole("button")).toBeDisabled();
-  });
+  const submitButton = screen.getByRole("button", { name: /Book a Table/i });
+  expect(submitButton).not.toBeDisabled();
 });

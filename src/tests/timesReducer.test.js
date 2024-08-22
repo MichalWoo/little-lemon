@@ -1,14 +1,19 @@
-import { render, screen } from "@testing-library/react";
-import BookingForm from ".components/BookingForm";
+import { initializeTimes, timesReducer } from "../components/MainBookingPage";
 
-test("Renders the BookingForm heading", () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText("Book a Table");
-  expect(headingElement).toBeInTheDocument();
-});
+describe("timesReducer", () => {
+  test("should remove booked time from available times", () => {
+    const initialState = initializeTimes();
+    const action = { type: "book_time", time: "18:00" };
+    const newState = timesReducer(initialState, action);
 
-test("Renders the Date label", () => {
-  render(<BookingForm />);
-  const dateLabelElement = screen.getByLabelText("Date");
-  expect(dateLabelElement).toBeInTheDocument();
+    expect(newState).not.toContain("18:00");
+  });
+
+  test("should reset available times", () => {
+    const initialState = [];
+    const action = { type: "reset_times" };
+    const newState = timesReducer(initialState, action);
+
+    expect(newState).toEqual(initializeTimes());
+  });
 });
